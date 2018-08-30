@@ -1,3 +1,8 @@
+%Prompt user to pick a compression factor and store it.
+prompt = 'Compression Factor: ';
+compressionfactor = input(prompt);
+compressionfactor = 1/compressionfactor;
+
 % Prompt user for file name and then read the image file.
 % Convert image matrix to double precision.
 % Obtain matrix dimensions.
@@ -9,7 +14,7 @@ sz = size(img);
 % Calculate the length later used to determine the number of 
 % terms retained when creating the compressed matrix.
 num = min([sz(1) sz(2)]);
-num = round(num * 1/10);
+num = round(num * compressionfactor);
 
 % Divide 3-D matrix to its three 2-D components (Red, Green, Blue).
 matrix1 = img(:,:,1);
